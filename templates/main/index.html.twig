@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			display: flex;
+			flex-direction: column;
+			margin: 1em auto;
+			max-width: 600px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+
+		h1 {
+			color: black;
+			text-align: center;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<h1 class="text-center" style="margin: 1rem;">Les ordinateurs de rève</h1>
+
+		{% for brand in brands %}
+			<a class="btn btn-success d-flex justify-content-between p-2 m-2 " href="{{path('tab', {id:brand.id})}}">{{brand.name}}</a>
+		{% endfor %}
+
+
+		<div class="container d-flex flex-wrap gap-2" style="width: 100vw">
+			{% for computer in computers %}
+				<div class="card m-4" style="width: 18rem;">
+					<img class="card-img-top" src="..." alt="Card image cap">
+					<div class="card-body">
+						<h2 class="card-title">{{computer.modele}}</h5>
+                        <p class="card-text">{{computer.description}}</p>
+                        <a href="#" class="btn btn-success">Voir les ordinateurs</a>
+
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}
+

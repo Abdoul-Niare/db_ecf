@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste des d'ordinateurs
+{% endblock %}
+
+{% block body %}
+
+<h1 class="title next-center nt-2 text-center" style="margin: 1rem;">Les annonces appartenant à
+	{{brand.name}}</h1>
+
+
+	<div class="container d-flex flex-wrap gap-2" style="width: 100vw ">
+		{% for computer in brand.computers %}
+			<div class="card m-4 d-flex " style="width: 18rem;">
+				<img class="card-img-top" src="....." alt="Card image cap">
+				<div class="card-body">
+					<a href="{{ path('app_brand_index')}}" class="card-title">{{computer.marque}}</a>
+					<p class="card-text">{{computer.description|raw}}</p>
+					<a href="{{ path('app_computer_show', {'id': computer.id}) }}" class="btn btn-primary">Details</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{%endblock%}
